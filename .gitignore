@@ -1,0 +1,10 @@
+/lazy-lock.json  # 如果你想在所有机器保持插件版本高度一致，可以不忽略它
+/lua/config/lazy-lock.json
+
+/.repro
+/data
+/cache
+/state
+
+*.log
+undo/
