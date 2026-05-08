@@ -8,3 +8,4 @@
 
 *.log
 undo/
+nvim-pack-lock.json
