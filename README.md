@@ -13,8 +13,13 @@ put a \<plugin-name\>.lua into plugin/
 > how to write it? follow https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 3. open lua/lsp.lua to enable
 
-
+## Somethings need to be check
+- Verilbe
+- Veridian
+- Clangd
+> Mason is NOT good
 thanks!  https://martinlwx.github.io/zh-cn/config-neovim-from-scratch/
+
 
 thanks!  https://kznleaf.top/2026/04/25/From-lazy-to-vimpack/
 
