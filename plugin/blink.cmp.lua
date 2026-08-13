@@ -1,9 +1,9 @@
-vim.pack.add({
-	{ src = "https://github.com/saghen/blink.cmp", version = "v1", name = "blink.cmp" },
-})
-
-require("blink.cmp").setup({
-	-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+vim.pack.add({ 'https://github.com/saghen/blink.lib', 'https://github.com/saghen/blink.cmp' })
+local cmp = require('blink.cmp')
+cmp.build():pwait()
+cmp.setup(
+{
+-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 	-- 'super-tab' for mappings similar to vscode (tab to accept)
 	-- 'enter' for enter to accept
 	-- 'none' for no mappings
@@ -28,11 +28,13 @@ require("blink.cmp").setup({
 		["<C-f>"] = { "scroll_documentation_down", "fallback" },
 		-- Show/hide signature
 		["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        -- Accept the select
+        ["<C-j>"] = { "select_and_accept", "fallback"}
 	},
 	appearance = {
 		-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 		-- Adjusts spacing to ensure icons are aligned
-		nerd_font_variant = "mono",
+		nerd_font_variant = "normal",
 	},
 	-- Default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -65,4 +67,18 @@ require("blink.cmp").setup({
 
 	-- Signature help when tying
 	signature = { enabled = true },
+
+
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "scala",
+  callback = function()
+    vim.b.blink_cmp = {
+      completion = {
+        accept = {
+          auto_brackets = { enabled = false },
+        },
+      },
+    }
+  end,
 })

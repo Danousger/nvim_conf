@@ -1,0 +1,6 @@
+vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+require('mini.bufremove').setup()
+require('mini.comment').setup()
+require("mini.indentscope").setup()
+require("mini.ai").setup()
+require("mini.pick").setup()
